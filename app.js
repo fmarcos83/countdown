@@ -33,6 +33,6 @@ CountDown.render = function(){
 CountDown.display = function(node, message){
     node.textContent = message;
 }
-window.document.body.onload=function(){
+window.onload=function(){
     CountDown.init({deadLine:'2014-09-01'});
 }
