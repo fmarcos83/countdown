@@ -1,34 +1,82 @@
 countDown = function(config){
+    var me = this;
     //TODO how to add constants in JS
-    countDown.interval = 100;
+    var MIN_REPEAT_INTERVAL = 10;
+
+    var deadLineDate,
+        deadLine,
+        repeatInterval,
+        intervalId,
+        callback;
+
     if (config===undefined) {
         throw {
             name: 'Error',
             message: 'configuration literal is required'
         };
     }
-    if (config.deadLine===undefined) {
+
+    if (!(config.deadLineDate instanceof Date)) {
         throw {
             name: 'Error',
-            message: 'deadLine property is required'
+            message: 'deadLineDate property is required'
         };
     }
-    var deadLine   = new Date(config.deadLine);
-    var repeatInterval   = config.interval||100;
-    var intervalId = null;
-    var callback = config.callback||function(){};
+
+    if (!(config.callback instanceof Function)) {
+        throw {
+            name: 'Error',
+            message: 'callback'
+        };
+    }
+
+    deadLineDate   = config.deadLineDate;
+    startDate      = config.startDate;
+    repeatInterval = config.repeatInterval||MIN_REPEAT_INTERVAL;
+    intervalId     = null;
+    callback       = config.callback;
+
+    //TODO: seems like a candidate to be refactored
+    deadLine       = new DeadLine({
+        startDate: config.startDate||new Date(),
+        deadLineDate: config.deadLineDate
+    });
+
+    var isDeadLine = function() {
+        return deadLine.isFinished();
+    };
+
+    stop = function(){
+        intervalId = clearInterval(intervalId);
+        callback = undefined;
+    };
+
+    var interceptCallBack = function(){
+        //TODO: this doesn't seem a very good practice
+        //here seems better an interface
+        (!deadLine.isFinished())||stop();
+        callback(deadLine);
+    };
+
     return {
+        //deprecated
+        getDeadLineDate: function(){
+            return deadLineDate;
+        },
         getDeadLine: function(){
             return deadLine;
         },
-        getInterval: function(){
+        getRepeatInterval: function(){
             return repeatInterval;
         },
         init: function(){
-            intervalId = intervalId||setInterval(callback, repeatinterval);
+            intervalId = intervalId||setInterval(interceptCallBack, repeatInterval);
+        },
+        getIntervalId: function(){
+            return intervalId;
         },
         stop: function(){
-            clearInterval(intervalId);
+            return stop();
         }
     };
 };
