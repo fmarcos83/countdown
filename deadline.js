@@ -29,10 +29,10 @@ DeadLine = function(config){
     deadLineDateTime = deadLineDate.getTime();
     startDateTime    = startDate.getTime();
 
-    if (deadLineDate.getTime() < startDate.getTime()) {
+    if (startDate.getTime() > deadLineDate.getTime()) {
         throw {
             name: 'Error',
-            message: 'deadLineDate is expected to be less than startDate'
+            message: 'deadLineDate is expected to be more than startDate'
         };
     }
 

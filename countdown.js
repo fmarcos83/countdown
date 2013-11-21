@@ -38,8 +38,8 @@ countDown = function(config){
 
     //TODO: seems like a candidate to be refactored
     deadLine       = new DeadLine({
-        startDate: config.startDate||new Date(),
-        deadLineDate: config.deadLineDate
+        startDate    : startDate||new Date(),
+        deadLineDate : deadLineDate
     });
 
     var isDeadLine = function() {
@@ -55,7 +55,7 @@ countDown = function(config){
         //TODO: this doesn't seem a very good practice
         //here seems better an interface
         (!deadLine.isFinished())||stop();
-        callback(deadLine);
+        !callback||callback(deadLine);
     };
 
     return {

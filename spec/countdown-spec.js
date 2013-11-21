@@ -128,7 +128,7 @@ describe('check interval is clearead on deadLine', function(){
 
 describe('check callback receives a DeadLine object', function(){
 
-    var timeCallback;
+    var timerCallback;
 
     beforeEach(function(){
         timerCallback = jasmine.createSpy('timerCallback');
@@ -139,10 +139,10 @@ describe('check callback receives a DeadLine object', function(){
         var sut = new countDown({
             deadLineDate   : new Date('2020'),
             callback       : timerCallback,
-            repeatInterval : 1000
+            repeatInterval : 30
         });
         sut.init();
-        jasmine.Clock.tick(1001);
+        jasmine.Clock.tick(2000);
         expect(timerCallback).toHaveBeenCalledWith(sut.getDeadLine());
     });
 
@@ -151,6 +151,7 @@ describe('check callback receives a DeadLine object', function(){
 describe('check interval is not longer created on init', function(){
 
     var timeCallback;
+    var nextYear = new Date(Date.now()+365*24*3600*1000);
 
     beforeEach(function(){
         timerCallback = jasmine.createSpy('timerCallback');
@@ -159,15 +160,15 @@ describe('check interval is not longer created on init', function(){
 
     it('checks interval is not created on succesive init calls', function(){
         var sut = new countDown({
-            deadLineDate   : new Date('2020'),
+            deadLineDate   : nextYear,
             callback       : timerCallback,
-            repeatInterval : 1000
+            repeatInterval : 4
         });
         sut.init();
         var intervalId = sut.getIntervalId();
-        jasmine.Clock.tick(1001);
+        jasmine.Clock.tick(3);
         sut.init();
-        jasmine.Clock.tick(1001);
+        jasmine.Clock.tick(3);
         expect(intervalId).toBe(sut.getIntervalId());
         sut.init();
         expect(intervalId).toBe(sut.getIntervalId());
@@ -175,16 +176,17 @@ describe('check interval is not longer created on init', function(){
 
     it('checks intervalId differs when stopped', function(){
         var sut = new countDown({
-            deadLineDate   : new Date('2020'),
+            deadLineDate   : nextYear,
             callback       : timerCallback,
-            repeatInterval : 1000
+            repeatInterval : 4
         });
         sut.init();
         var intervalId = sut.getIntervalId();
-        jasmine.Clock.tick(1001);
+        jasmine.Clock.tick(3);
         expect(intervalId).toBe(sut.getIntervalId());
         sut.stop();
         sut.init();
+        jasmine.Clock.tick(3);
         expect(intervalId).not.toBe(sut.getIntervalId());
     });
 

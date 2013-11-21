@@ -51,7 +51,7 @@ describe('a startDate cannot be older than endDate', function(){
 
         expect(instantatation).toThrow({
             name: 'Error',
-            message: 'deadLineDate is expected to be less than startDate'
+            message: 'deadLineDate is expected to be more than startDate'
         });
 
     });
