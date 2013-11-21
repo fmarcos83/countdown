@@ -133,7 +133,7 @@ describe('percentage completed', function(){
     var now = Date.now();
     var nowBuiltinFunction = Date.now;
     var startDate = new Date('0000');
-    var endDate   = new Date('1000');
+    var endDate   = new Date('0100');
     var multi = 0;
     initialTime = startDate.getTime();
     leap = 24*3600*1000*365;

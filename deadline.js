@@ -51,7 +51,7 @@ DeadLine = function(config){
 
         getPercentageCompleted                    : function() {
             return Math.round(
-                ( now() - startDateTime )/totalTime*1000
+                ( now() - startDateTime )/(totalTime)*100
             );
         },
 
@@ -60,7 +60,7 @@ DeadLine = function(config){
         },
 
         getStartDate                              : function(){
-            return getStartDate;
+            return startDate;
         }
     };
 };
