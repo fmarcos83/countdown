@@ -1,4 +1,5 @@
-countDown = function(config){
+Countdown = function(config){
+
     var me = this;
     //TODO how to add constants in JS
     var MIN_REPEAT_INTERVAL = 10;
@@ -79,4 +80,5 @@ countDown = function(config){
             return stop();
         }
     };
+
 };

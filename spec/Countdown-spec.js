@@ -1,10 +1,10 @@
-require('../deadline.js');
-require('../countdown.js');
+require('../Deadline.js');
+require('../Countdown.js');
 
 describe('configuration required', function(){
 
     it('should throw exception if not configure object', function(){
-        expect(function(){countDown();}).toThrow(
+        expect(function(){Countdown();}).toThrow(
             {
                 name    : 'Error',
                 message : 'configuration literal is required'
@@ -17,7 +17,7 @@ describe('configuration required', function(){
 describe('configuration deadLineDate property required', function(){
 
     it('should throw exception if deadLineDate property not present', function(){
-        expect(function(){countDown({});}).toThrow(
+        expect(function(){Countdown({});}).toThrow(
             {
                 name    : 'Error',
                 message : 'deadLineDate property is required'
@@ -30,11 +30,11 @@ describe('configuration deadLineDate property required', function(){
 describe('configuration interval default', function(){
 
     it('should return default value for deadLineDate', function(){
-        var countDownInstance = new countDown({
+        var CountdownInstance = new Countdown({
             deadLineDate : new Date(''),
             callback : function(){}
         });
-        expect(countDownInstance.getRepeatInterval()).toBe(10);
+        expect(CountdownInstance.getRepeatInterval()).toBe(10);
     });
 
 });
@@ -42,17 +42,17 @@ describe('configuration interval default', function(){
 describe('configuration interval override',function(){
 
     it('should return countdown overriden interval value', function(){
-        var countDownInstance = new countDown({
+        var CountdownInstance = new Countdown({
             deadLineDate   : new Date(),
             callback       : function(){},
             repeatInterval : 1000
         });
-        expect(countDownInstance.getRepeatInterval()).toBe(1000);
+        expect(CountdownInstance.getRepeatInterval()).toBe(1000);
     });
 
 });
 
-describe('check countDown calls callback on init', function(){
+describe('check Countdown calls callback on init', function(){
 
     var timerCallback;
 
@@ -62,7 +62,7 @@ describe('check countDown calls callback on init', function(){
     });
 
     it('checks callback is called', function(){
-        var sut = new countDown({
+        var sut = new Countdown({
             deadLineDate   : new Date('2020'),
             callback       : timerCallback,
             repeatInterval : 1000
@@ -77,7 +77,7 @@ describe('check countDown calls callback on init', function(){
 
 });
 
-describe('check countDown doesnt calls callback on init if deadLineDate is meeted', function(){
+describe('check Countdown doesnt calls callback on init if deadLineDate is meeted', function(){
 
     var timerCallback;
 
@@ -87,7 +87,7 @@ describe('check countDown doesnt calls callback on init if deadLineDate is meete
     });
 
     it('checks callback is not called', function(){
-        var sut = new countDown({
+        var sut = new Countdown({
             deadLineDate   : new Date(),
             callback       : timerCallback,
             repeatInterval : 1000
@@ -112,7 +112,7 @@ describe('check interval is clearead on deadLine', function(){
     });
 
     it('checks interval is cleared on deadLine', function(){
-        var sut = new countDown({
+        var sut = new Countdown({
             deadLineDate   : new Date(),
             callback       : timerCallback,
             repeatInterval : 1000
@@ -136,7 +136,7 @@ describe('check callback receives a DeadLine object', function(){
     });
 
     it('checks callback receives a DeadLine object', function(){
-        var sut = new countDown({
+        var sut = new Countdown({
             deadLineDate   : new Date('2020'),
             callback       : timerCallback,
             repeatInterval : 30
@@ -159,7 +159,7 @@ describe('check interval is not longer created on init', function(){
     });
 
     it('checks interval is not created on succesive init calls', function(){
-        var sut = new countDown({
+        var sut = new Countdown({
             deadLineDate   : nextYear,
             callback       : timerCallback,
             repeatInterval : 4
@@ -175,7 +175,7 @@ describe('check interval is not longer created on init', function(){
     });
 
     it('checks intervalId differs when stopped', function(){
-        var sut = new countDown({
+        var sut = new Countdown({
             deadLineDate   : nextYear,
             callback       : timerCallback,
             repeatInterval : 4

@@ -1,4 +1,4 @@
-require('../deadline.js');
+require('../Deadline.js');
 
 describe('required configuration on DeadLine instantatation', function(){
 
