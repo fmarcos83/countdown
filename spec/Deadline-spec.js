@@ -1,3 +1,4 @@
+require('../bower_components/js-signals/dist/signals.js');
 require('../Deadline.js');
 
 describe('required configuration on DeadLine instantatation', function(){

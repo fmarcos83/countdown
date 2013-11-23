@@ -1,5 +1,17 @@
+require('../bower_components/jasmine-signals/jasmine-signals.js');
+require('../bower_components/js-signals/dist/signals.js');
 require('../Deadline.js');
 require('../Countdown.js');
+
+signals = {};
+signals.Signal = function(){
+    return {
+        dispatch: function(){},
+        add: function(){},
+        remove: function(){}
+    };
+};
+
 
 describe('configuration required', function(){
 
