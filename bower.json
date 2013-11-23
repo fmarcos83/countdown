@@ -1,0 +1,31 @@
+{
+  "name": "countdown",
+  "version": "0.0.1",
+  "authors": [
+    "Francisco Marcos <fmarcos83@gmail.com>"
+  ],
+  "description": "countdowns management system",
+  "main": [
+    "./Countdown.js",
+    "./Deadline.js"
+   ],
+  "keywords": [
+    "DrikaTux.Countdown",
+    "DrikaTux.Deadline"
+  ],
+  "dependencies": {
+    "js-signals":"1.0.0"
+  },
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/fmarcos83/countdown",
+  "ignore": [
+    "**/.*",
+    "README.md",
+    "node_modules",
+    "bower_components",
+    "examples",
+    "spec",
+    "test",
+    "tests"
+  ]
+}
