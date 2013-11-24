@@ -1,4 +1,20 @@
-Countdown.js
-============
+# js-countdown
 
-A library for countdowns
+A library for countdown management
+simple
+
+## how to use
+
+```javascript
+    //countdown to 5 seconds in the future
+    //will output the deadline object
+    var countdown = new Coundown({
+        deadLineDate : new Date(Date.now()+5000)
+        callback: function(deadLineDate){console.log(deadLineDate);}
+    });
+```
+
+### installing
+
+* __bower__ bower install js-countdown
+
