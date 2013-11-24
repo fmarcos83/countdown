@@ -4,7 +4,8 @@ window.onload=function(){
     var viewText = document.getElementById('countdowntext');
     var viewTextS = document.getElementById('countdowntextstart');
     var viewTextR = document.getElementById('remainingtime');
-    var callBackFunction = function(deadLine){
+    var callBackFunction = function(cd){
+        var deadLine = cd.getDeadLine();
         var percentage = deadLine.getPercentageCompleted();
         view.textContent = (percentage<100)?percentage:100;
         viewText.textContent = deadLine.getDeadLineDate();
@@ -15,7 +16,9 @@ window.onload=function(){
     };
     cd = new Countdown({
         deadLineDate   : new Date(Date.now()+(1*1000)),
-        callback: callBackFunction
+        callback: function(){}
     });
+    cd.updated.add(callBackFunction);
+    cd.stopped.add(callBackFunction);
     cd.init();
 }
