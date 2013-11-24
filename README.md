@@ -14,7 +14,10 @@ simple
     });
 ```
 
-### installing
+## installing
 
-* __bower__ bower install js-countdown
+### bower
 
+```bash
+bower install js-countdown
+```
