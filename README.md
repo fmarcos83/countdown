@@ -38,7 +38,7 @@ A library for easy countdown management
 > nevertheless the plan is to create a wrapper so
 > anyone can inject it's custom signal library
 
-[js-signals] https://github.com/millermedeiros/js-signals
+[js-signals](https://github.com/millermedeiros/js-signals)
 
 ## installing
 
