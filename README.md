@@ -24,7 +24,13 @@ A library for easy countdown management
     countdown.init();
 ```
 
-#### init countdown
+#### signal listener addition
+
+```javascript
+    //init countdown will
+    countdown.updated.add(function(){});
+    countdown.stopped.add(function(){});
+```
 
 ## dependencies
 
