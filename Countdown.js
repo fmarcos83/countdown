@@ -1,5 +1,6 @@
 Countdown = function(config){
 
+    //all this can be refactored into a validation system
     if (config===undefined) {
         throw {
             name: 'Error',
@@ -28,7 +29,10 @@ Countdown = function(config){
         };
     }
 
-    var MIN_REPEAT_INTERVAL = 4;
+    //TODO set pollyfills to check the environment and
+    //allow more performance with postMessage
+    var MIN_REPEAT_INTERVAL = 10;
+
 
     var deadLineDate       = config.deadLineDate,
         startDate          = config.startDate,
@@ -36,6 +40,9 @@ Countdown = function(config){
         intervalId         = null,
         callback           = config.callback,
         signalSystem       = signals.Signal,
+        me                 = this,
+        //signals
+        updated            = new signalSystem(),
         stopped            = new signalSystem();
 
     //it's necesary to set which kind of instance
@@ -54,23 +61,41 @@ Countdown = function(config){
         return deadLine.isFinished();
     };
 
+    var removeAllSignalListeners = function(){
+        stopped.removeAll();
+        updated.removeAll();
+    };
+
     var stop = function(){
         intervalId = clearInterval(intervalId);
-        stopped.dispatch(deadLine);
+        stopped.dispatch(me);
         callback = undefined;
+        removeAllSignalListeners();
     };
 
     var interceptCallBack = function(){
-        !callback||callback(deadLine);
         (!deadLine.isFinished())||stop();
+        updated.dispatch(me);
+        !callback||callback(deadLine);
     };
+
+    getDeadLine = function() {
+        return deadLine;
+    };
+
+    //TODO hack with the public private
+    //methods learn why
+    me.getDeadLine = getDeadLine;
 
     return {
 
         stopped: stopped,
 
+        updated: updated,
+
+        //TODO: check why this happens
         getDeadLine: function(){
-            return deadLine;
+            return getDeadLine();
         },
 
         getRepeatInterval: function(){
