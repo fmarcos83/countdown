@@ -1,7 +1,6 @@
 # js-countdown
 
-A library for countdown management
-simple
+A library for easy countdown management
 
 ## how to use
 
