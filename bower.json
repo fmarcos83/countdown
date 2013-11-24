@@ -6,8 +6,8 @@
   ],
   "description": "countdowns management system",
   "main": [
-    "./Countdown.js",
-    "./Deadline.js"
+    "./src/Countdown.js",
+    "./src/Deadline.js"
    ],
   "keywords": [
     "DrikaTux.Countdown",

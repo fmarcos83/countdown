@@ -1,7 +1,7 @@
 //require('../bower_components/jasmine-signals/jasmine-signals.js');
 //require('../bower_components/js-signals/dist/signals.js');
-require('../Deadline.js');
-require('../Countdown.js');
+require('../src/Deadline.js');
+require('../src/Countdown.js');
 
 //TODO necesary a refactor to make the tests cleaner
 //and now exactly the features
