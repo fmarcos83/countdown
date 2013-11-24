@@ -36,6 +36,9 @@ DeadLine = function(config){
         };
     }
 
+    //TODO necesary to inject a way to calculate the current
+    //now date and create multipliers a callback function should
+    //be enough or a stack
     var now = function(){ return Date.now(); };
     var totalTime = deadLineDateTime - startDateTime;
 
@@ -51,7 +54,7 @@ DeadLine = function(config){
 
         getPercentageCompleted                    : function() {
             return Math.round(
-                ( now() - startDateTime )/(totalTime)*100
+                ( now() - startDateTime )/totalTime*100
             );
         },
 
