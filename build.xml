@@ -1,4 +1,4 @@
-<project name="js-signals" default="dist" basedir=".">
+<project name="js-countdown" default="dist" basedir=".">
     <description>
         build script for js-signals
     </description>
