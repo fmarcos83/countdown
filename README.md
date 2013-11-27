@@ -2,7 +2,7 @@
 
 A library for easy countdown management
 
-## how to use
+## Examples
 
 #### instantiating
 
@@ -32,7 +32,11 @@ A library for easy countdown management
     countdown.stopped.add(function(){});
 ```
 
-## dependencies
+## License
+
+[MIT](http://opensource.org/licenes/mit-license.php)
+
+## Dependencies
 
 > js-signals is the defacto signal library for this component
 > nevertheless the plan is to create a wrapper so
@@ -40,7 +44,7 @@ A library for easy countdown management
 
 [js-signals](https://github.com/millermedeiros/js-signals)
 
-## installing
+## Installing
 
 ### bower
 
