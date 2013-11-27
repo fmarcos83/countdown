@@ -29,7 +29,7 @@ A library for easy countdown management
 ```
 ## License
 
-[MIT](http://opensource.org/licenes/mit-license.php)
+[MIT](http://opensource.org/licenses/mit-license.php)
 ## Dependencies
 
 > js-signals is the defacto signal library for this component
