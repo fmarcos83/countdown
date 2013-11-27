@@ -46,8 +46,8 @@ bower install js-countdown
 ## Build
 ### Requirements
 
-+[jasmine-node](https://github.com/mhevery/jasmine-node)
-+[ant](http://ant.apache.org)
++ [jasmine-node](https://github.com/mhevery/jasmine-node)
++ [ant](http://ant.apache.org)
 
 ### Prepeare release
 
