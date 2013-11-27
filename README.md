@@ -3,7 +3,6 @@
 A library for easy countdown management
 
 ## Examples
-
 #### Instantiating
 
 ```javascript
@@ -16,14 +15,12 @@ A library for easy countdown management
         [repeatInterval : 1000]
     });
 ```
-
 #### Init Countdown
 
 ```javascript
     //init countdown will
     countdown.init();
 ```
-
 #### Signal Listener Addition
 
 ```javascript
@@ -45,7 +42,6 @@ A library for easy countdown management
 [js-signals](https://github.com/millermedeiros/js-signals)
 
 ## Installing
-
 ### Bower
 
 ```bash
@@ -54,12 +50,12 @@ bower install js-countdown
 
 ## Build
 
-> to build the release the next tools are needed
-
 ### Requirements
++[ant](http://ant.apache.org)
 
-    -[jasmine-node](https://github.com/mhevery/jasmine-node)
-    -[ant](http://ant.apache.org)
+### Prepeare release
+
+work in progress
 
 ### Tests
 
