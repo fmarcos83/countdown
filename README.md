@@ -1,7 +1,6 @@
 # JS-COUNTDOWN
 
 A library for easy countdown management
-
 ## Examples
 #### Instantiating
 
@@ -28,11 +27,9 @@ A library for easy countdown management
     countdown.updated.add(function(){});
     countdown.stopped.add(function(){});
 ```
-
 ## License
 
 [MIT](http://opensource.org/licenes/mit-license.php)
-
 ## Dependencies
 
 > js-signals is the defacto signal library for this component
@@ -40,17 +37,16 @@ A library for easy countdown management
 > anyone can inject it's custom signal library
 
 [js-signals](https://github.com/millermedeiros/js-signals)
-
 ## Installing
 ### Bower
 
 ```bash
 bower install js-countdown
 ```
-
 ## Build
-
 ### Requirements
+
++[jasmine-node](https://github.com/mhevery/jasmine-node)
 +[ant](http://ant.apache.org)
 
 ### Prepeare release
