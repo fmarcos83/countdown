@@ -1,0 +1,11 @@
+<project name="js-signals" default="dist" basedir=".">
+    <description>
+        build script for js-signals
+    </description>
+    <target name="test">
+        <exec executable="jasmine-node" failonerror="true">
+            <arg line="--test-dir ./spec" />
+            <arg line="--verbose" />
+        </exec>
+    </target>
+</project>

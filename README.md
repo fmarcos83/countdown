@@ -1,10 +1,10 @@
-# js-countdown
+# JS-COUNTDOWN
 
 A library for easy countdown management
 
 ## Examples
 
-#### instantiating
+#### Instantiating
 
 ```javascript
     //countdown to 5 seconds in the future
@@ -17,14 +17,14 @@ A library for easy countdown management
     });
 ```
 
-#### init countdown
+#### Init Countdown
 
 ```javascript
     //init countdown will
     countdown.init();
 ```
 
-#### signal listener addition
+#### Signal Listener Addition
 
 ```javascript
     //init countdown will
@@ -46,8 +46,23 @@ A library for easy countdown management
 
 ## Installing
 
-### bower
+### Bower
 
 ```bash
 bower install js-countdown
+```
+
+## Build
+
+> to build the release the next tools are needed
+
+### Requirements
+
+    -[jasmine-node](https://github.com/mhevery/jasmine-node)
+    -[ant](http://ant.apache.org)
+
+### Tests
+
+```bash
+ant test
 ```
