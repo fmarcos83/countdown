@@ -1,7 +1,9 @@
 DeadLine = function(config){
 
     var deadLineDate,
-        startDate;
+        startDate,
+        deadLineDateTime,
+        startDateTime;
 
     if (!(config instanceof Object)) {
         throw {
@@ -54,7 +56,7 @@ DeadLine = function(config){
 
         getPercentageCompleted                    : function() {
             return Math.round(
-                ( now() - startDateTime )/totalTime*100
+                (now() - startDateTime)/totalTime*100
             );
         },
 
