@@ -30,6 +30,11 @@ A library for easy countdown management
 ## License
 
 [MIT](http://opensource.org/licenses/mit-license.php)
+
+## Versioning
+
+This project follows [SEMV](http://semver.org) rules
+
 ## Dependencies
 
 > js-signals is the defacto signal library for this component
